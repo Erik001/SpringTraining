@@ -2,11 +2,31 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    
-    <bean id="fruit" class="com.tree.test.Fruit"/>
-    <bean id="fruitWithName" class="com.tree.test.Fruit">
-    	<constructor-arg index="0" value="The Angry Orange XD"/>
-    </bean>
-    <bean id="vegetable" class="com.tree.test.Vegetable"/>
+
+	<bean id="fruit" class="com.tree.test.Fruit" />
+	<bean id="fruitWithName" class="com.tree.test.Fruit">
+		<constructor-arg index="0" value="The Angry Orange XD" />
+	</bean>
+	<bean id="vegetable" class="com.tree.test.Vegetable" />
+	<bean id="vegWithName" class="com.tree.test.Vegetable">
+		<property name="myName" value="The Crazy Brocolli." />
+	</bean>
+	<bean id="fruitWithListAndMap" class="com.tree.test.Fruit">
+		<property name="fruitNameList">
+			<list>
+				<value>Zombie Apple</value>
+				<value>Stinky Banana</value>
+				<value>Angry Orange</value>
+			</list>
+		</property>
+		
+		<property name="fruitNameMap">
+			<map>
+				<entry key="Zombie Apple" value="red"/>
+				<entry key="Stinky Banana" value="yellow"/>
+				<entry key="Angry Orange" value="orange"/>
+			</map>
+		</property>
+	</bean>
 
 </beans>
