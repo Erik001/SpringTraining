@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="textEditor" class="com.tree.spring.practice.TextEditor" lazy-init="true">
+		<constructor-arg ref="spellChecker" />
+	</bean>
+	
+	<bean id="textEditorSetter" class="com.tree.spring.practice.TextEditor" lazy-init="true">
+		<property name="spellChecker" ref="spellChecker" />
+	</bean>
+	
+	<bean id="textEditorInnerBean" class="com.tree.spring.practice.TextEditor" >
+		<property name="spellChecker">
+			<bean name="spellChecker" class="com.tree.spring.practice.SpellChecker" />
+		</property>
+	</bean>
+
+	<bean id="spellChecker" class="com.tree.spring.practice.SpellChecker" />
+
+</beans>
