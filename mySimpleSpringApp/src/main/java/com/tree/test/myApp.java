@@ -17,11 +17,13 @@ public class myApp {
 
 		Vegetable myVegetable = (Vegetable) appContext.getBean("vegetable");
 		Vegetable myOtherVegetable = (Vegetable) appContext.getBean("vegWithName");
+		Vegetable myOtherWithPVegetable = (Vegetable) appContext.getBean("vegUsingPNamespace");
 
 		System.out.println(myFruit.talkAboutYourself());
 		System.out.println(myOtherFruit.talkAboutYourself());
 		System.out.println(myVegetable.talkAboutYourself());
 		System.out.println(myOtherVegetable.talkAboutYourself());
+		System.out.println(myOtherWithPVegetable.talkAboutYourself());
 		for (String fruitName : myFruitWithListAndMap.getFruitNameList()) {
 			System.out.println(
 					"The " + fruitName + " is of color " + myFruitWithListAndMap.getFruitNameMap().get(fruitName));
