@@ -8,9 +8,10 @@ public class MainApp {
 	public static void main(String[] args) {
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("com/tree/spring/configuration/appContext.xml");
 		//ApplicationContext context = new FileSystemXmlApplicationContext("appContext.xml");
-		TextEditor te = context.getBean("textEditorInnerBean", TextEditor.class);
-		te.spellCheck();
-				
+		//TextEditor te = context.getBean("textEditorAutowireByName", TextEditor.class);
+		//te.spellCheck();
+		TextEditor te1 = context.getBean("textEditorAutowireByType", TextEditor.class);
+		te1.spellCheck();		
 		
 
 	}

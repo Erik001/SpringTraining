@@ -3,20 +3,35 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="textEditor" class="com.tree.spring.practice.TextEditor" lazy-init="true">
+	<bean id="textEditor" class="com.tree.spring.practice.TextEditor"
+		lazy-init="true">
 		<constructor-arg ref="spellChecker" />
 	</bean>
-	
-	<bean id="textEditorSetter" class="com.tree.spring.practice.TextEditor" lazy-init="true">
+
+	<bean id="textEditorSetter" class="com.tree.spring.practice.TextEditor"
+		lazy-init="true">
 		<property name="spellChecker" ref="spellChecker" />
 	</bean>
-	
-	<bean id="textEditorInnerBean" class="com.tree.spring.practice.TextEditor" >
+
+	<bean id="textEditorInnerBean" class="com.tree.spring.practice.TextEditor"
+		lazy-init="true">
 		<property name="spellChecker">
 			<bean name="spellChecker" class="com.tree.spring.practice.SpellChecker" />
 		</property>
 	</bean>
 
-	<bean id="spellChecker" class="com.tree.spring.practice.SpellChecker" />
+	<bean id="textEditorAutowireByName" class="com.tree.spring.practice.TextEditor"
+		autowire="byName" lazy-init="true">
+		<property name="name" value="Generic Text Editor" />
+	</bean>
+	
+	<bean id="textEditorAutowireByType" class="com.tree.spring.practice.TextEditor"
+		autowire="byType" lazy-init="true">
+		<property name="name" value="Generic Text Editor" />
+	</bean>
+
+	<bean id="spellChecker" class="com.tree.spring.practice.SpellChecker" lazy-init="true" />
+	
+	
 
 </beans>
