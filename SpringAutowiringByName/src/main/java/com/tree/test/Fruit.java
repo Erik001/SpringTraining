@@ -2,7 +2,7 @@ package com.tree.test;
 
 public class Fruit {
 
-	public Fruit() {
+	private Fruit() {
 	}
 
 	public String talkAboutYourself() {
