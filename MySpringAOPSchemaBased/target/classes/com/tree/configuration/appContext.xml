@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	default-autowire="byType" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+	<context:annotation-config />
+
+	<aop:config>
+		<aop:aspect id="log" ref="logging">
+			<!-- <aop:pointcut expression="execution(* com.tree.spring.practice.*.*(..))" 
+				id="selectAll" /> <aop:before method="beforeAdvice" pointcut-ref="selectAll" 
+				/> <aop:after method="afterAdvice" pointcut-ref="selectAll" /> <aop:after-returning 
+				method="afterReturningAdvice" pointcut-ref="selectAll" returning="retVal" 
+				/> <aop:after-throwing method="afterThrowingAdvice" pointcut-ref="selectAll" 
+				throwing="ex" /> -->
+			<aop:pointcut expression="execution(* com.tree.spring.practice.Student.getName(..))"
+				id="selectAll" />
+			<aop:before method="beforeAdvice" pointcut-ref="selectAll" />
+			<aop:after method="afterAdvice" pointcut-ref="selectAll" />
+		</aop:aspect>
+	</aop:config>
+
+	<!-- Definition for student bean -->
+	<bean id="student" class="com.tree.spring.practice.Student">
+		<property name="name" value="Pepito" />
+		<property name="age" value="11" />
+	</bean>
+
+	<!-- Definition for logging aspect -->
+	<bean id="logging" class="com.tree.spring.practice.Logging" />
+
+</beans>
